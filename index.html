@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitação de Tela</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0b1a2f, #02040a);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ---------- HUB ---------- */
+    .hub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      gap: 40px;
+    }
+
+    .hub h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 25px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .profile {
+      cursor: pointer;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .profile img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    }
+
+    .profile span {
+      margin-top: 10px;
+      display: block;
+      font-size: .9rem;
+      opacity: .85;
+    }
+
+    .profile:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(0,255,255,0.4);
+    }
+
+    /* ---------- EPISÓDIOS ---------- */
+    .episode {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #050b18, #000);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      animation: fadeIn .6s ease;
+    }
+
+    .episode.active {
+      display: flex;
+    }
+
+    .episode img {
+      max-width: 280px;
+      width: 80%;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 40px rgba(0,255,255,0.35);
+    }
+
+    .episode h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .episode p {
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.5;
+      max-width: 400px;
+      opacity: .9;
+    }
+
+    .back {
+      margin-top: 40px;
+      font-size: .9rem;
+      opacity: .6;
+      cursor: pointer;
+      transition: opacity .3s;
+    }
+
+    .back:hover {
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HUB -->
+  <section class="hub" id="hub">
+    <h1>Você acaba de solicitar tela de quem?</h1>
+
+    <div class="profiles">
+      <div class="profile" onclick="openEpisode('veber')">
+        <img src="img/veber.jpg">
+        <span>VEBER</span>
+      </div>
+
+      <div class="profile" onclick="openEpisode('crow')">
+        <img src="img/crow.jpg">
+        <span>CROW</span>
+      </div>
+
+      <div class="profile" onclick="openEpisode('tuy')">
+        <img src="img/tuy.jpg">
+        <span>TUY</span>
+      </div>
+
+      <div class="profile" onclick="openEpisode('gody')">
+        <img src="img/gody.jpg">
+        <span>GODY</span>
+      </div>
+
+      <div class="profile" onclick="openEpisode('ryck')">
+        <img src="img/ryck.jpg">
+        <span>RYCK</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISÓDIOS -->
+
+  <section class="episode" id="veber">
+    <img src="img/veber.jpg">
+    <h2>VEBER</h2>
+    <p>
+      Você pediu a tela do mais preguiçoso do cenário.<br><br>
+      Mas dá um salve na live dele no TikTok:<br>
+      <strong>@veber.thb</strong>
+    </p>
+    <div class="back" onclick="closeEpisode()">voltar</div>
+  </section>
+
+  <section class="episode" id="crow">
+    <img src="img/crow.jpg">
+    <h2>CROW</h2>
+    <p>
+      Você acaba de se foder.<br><br>
+      Vai ser humilhado na análise<br>
+      com os <strong>128GB de RAM</strong> do PC dele.<br><br>
+      Pobre.
+    </p>
+    <div class="back" onclick="closeEpisode()">voltar</div>
+  </section>
+
+  <section class="episode" id="tuy">
+    <img src="img/tuy.jpg">
+    <h2>TUY</h2>
+    <p>
+      O coisa ruim voltou!<br><br>
+      Mas relaxa…<br>
+      ele não gosta de jogar.<br>
+      É zero foco.
+    </p>
+    <div class="back" onclick="closeEpisode()">voltar</div>
+  </section>
+
+  <section class="episode" id="gody">
+    <img src="img/gody.jpg">
+    <h2>GODY</h2>
+    <p>
+      Só desinstala o jogo.<br><br>
+      E desiste.<br>
+      Pprt.<br><br>
+      kkkkkkkkk
+    </p>
+    <div class="back" onclick="closeEpisode()">voltar</div>
+  </section>
+
+  <section class="episode" id="ryck">
+    <img src="img/ryck.jpg">
+    <h2>RYCK</h2>
+    <p>
+      Parabéns.<br>
+      Tu ganhou um W.O.<br><br>
+      O PC do cara é batata.<br>
+      Nem serviço tem.
+    </p>
+    <div class="back" onclick="closeEpisode()">voltar</div>
+  </section>
+
+  <script>
+    function openEpisode(id) {
+      document.getElementById('hub').style.display = 'none';
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closeEpisode() {
+      document.querySelectorAll('.episode').forEach(ep => ep.classList.remove('active'));
+      document.getElementById('hub').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
